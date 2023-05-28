@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun Doo it</title>
+    <link rel="stylesheet" href="{% static 'login_pengguna.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="login">
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <h2>Doo it</h2>
+                <p>Selamat Datang ! Daftar Akun Doo it</p>
+                <label for="first_name">First name</label>
+                {{ form.first_name }}
+                <label for="last_name">Last name</label>
+                {{ form.last_name }}
+                <label for="username">Username</label>
+                {{ form.username }}
+                <label for="password1">Password</label>
+                {{ form.password1 }}
+                <label for="password2">Password</label>
+                {{ form.password2 }}
+                <label for="register">
+                    <button type="submit">Sign up</button>
+                </label>
+                <p>
+                    Already have an account? <a href="{% url 'login' %}">Sign in!</a>
+                </p>
+            </form>
+        </div>
+        <div class="right">
+            <img src="{% static 'login_assets.png' %}">
+        </div>
+    </div>
+</body>
+
+</html>
